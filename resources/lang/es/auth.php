@@ -16,7 +16,6 @@ return [
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'title' => 'Hello, This is English Language.',
-    'test_title' => 'This is Test Title.'
-
+    'title' => 'Hola, este es el idioma inglés.',
+    'test_title' => 'Este es el título de la prueba.'
 ];

@@ -16,7 +16,7 @@
                         <h3 class="card-title">Contact Form</h3>
                     </div>
                     <div class="card-body">
-                        <form id="contact-form" action="{{ route('contact.store') }}" method="POST" autocomplete="off">
+                        <form id="contact-form" action="{{ route('contact.store', app()->getLocale()) }}" method="POST" autocomplete="off">
                             @csrf
                             <div id="res" class="d-none">
                                 <ul class="list-unstyled text-white"></ul>

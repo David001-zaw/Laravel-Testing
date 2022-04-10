@@ -18,27 +18,42 @@ use App\Http\Controllers\LiveSearchController;
 |
 */
 
-Route::view('/', 'home');
 
-// Components
-Route::get('/component', function() {
-    $posts = Post::all();
-    return view('component', compact('posts'));
-})->name('component');
+// Laravel Language Switcher
 
-// LiveSearch with ajax
-Route::get('/live-search', [LiveSearchController::class, 'index'])->name('live-search');
-Route::get('/search', [LiveSearchController::class, 'search']);
+Route::redirect('/', '/en');
 
-// Laravel Mailing
-Route::get('/email', function() {
-    $name = "User-One";
-    Mail::to('davidzaw1111@gmail.com')->send(new WelcomeMail($name));
-    return new WelcomeMail($name);
-})->name('email');
+Route::group(['prefix' => '{locale}'], function () {
+    Route::view('/', 'home')->name('home');
 
-// Ajax Validation & Mailing
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+    // Language Switching
+    Route::get('/lang-switch', function(){
+        return view('lang-switch');
+    })->name('lang-switch');
+
+    // Components
+    Route::get('/component', function() {
+        $posts = Post::all();
+        return view('component', compact('posts'));
+    })->name('component');
+
+    // LiveSearch with ajax
+    Route::get('/live-search', [LiveSearchController::class, 'index'])->name('live-search');
+    Route::get('/search', [LiveSearchController::class, 'search']);
+
+    // Laravel Mailing
+    Route::get('/email', function() {
+        $name = "User-One";
+        Mail::to('davidzaw1111@gmail.com')->send(new WelcomeMail($name));
+        return new WelcomeMail($name);
+    })->name('email');
+
+    // Ajax Validation & Mailing
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+
+});
+
+
 
 
