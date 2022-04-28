@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title', 'Live Search with Ajax')
 
@@ -10,7 +10,7 @@
                 <h4 class="text-primary">Search with Id or Title</h4>
                 <input type="text" name="search" id="search" class="form-control" autocomplete="off" placeholder="Search Post..." onfocus="this.value=''">
             </div>
-            <div>
+            <div id="not_found">
                 <table class="table table-bordered border-primary">
                     <thead>
                         <tr>
@@ -18,7 +18,7 @@
                             <th>Title</th>
                         </tr>
                     </thead>
-                    <tbody id="search_list">
+                    <tbody id="search_list" class="text-center">
                         @foreach ($posts as $post)
                             <tr>
                                 <td>{{ $post->id }}</td>
@@ -44,8 +44,18 @@
                 type:"GET",
                 data:{'search':$query},
                 success:function(data){
-                    console.log(data);
-                    $('#search_list').html(data);
+                    // console.log(data);
+                    if(data.length > 0){
+                        $('#search_list').html(data);
+                    }else{
+                        $not_found = `
+                            <div class="my-3">
+                                <h3>There is no blog which named  >> <span class="text-danger"> ${$query} </span></h3>
+                            </div>
+                        `;
+                        $('#search_list').html($not_found);
+                    }
+
                 }
             });
         });

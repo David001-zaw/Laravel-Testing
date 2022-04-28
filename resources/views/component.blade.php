@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blade Component</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+
+@extends('layouts.app')
+
+@section('title', 'Blade Components')
+
+@section('content')
     <x-title>Alert Components (class based component)</x-title>
     <div class="container">
         {{-- <x-alert type="alert-danger" message="Danger Alert Message" />
@@ -112,9 +108,4 @@
     </div>
 
     <x-title></x-title>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-</body>
-</html>
+@endsection

@@ -1,6 +1,6 @@
 
 
-@extends('layout')
+@extends('layouts.app')
 
 @section('title', 'Home Page')
 
@@ -12,6 +12,13 @@
             <div class="card">
                 <div class="card-header">
                     <h4><a href="{{ route('lang-switch', app()->getLocale()) }}">Language Switching</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4><a href="">Laravel Basic Crud</a></h4>
                 </div>
             </div>
         </div>
@@ -40,6 +47,20 @@
             <div class="card">
                 <div class="card-header">
                     <h4><a href="{{ route('contact', app()->getLocale()) }}">Ajax Validation & Mailing</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4><a href="{{ route('photo.index', app()->getLocale()) }}">Multiple Image/File Upload with Permission</a></h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4><a href="{{ route('posts.index', app()->getLocale()) }}">Polymorphic Relation Comments</a></h4>
                 </div>
             </div>
         </div>

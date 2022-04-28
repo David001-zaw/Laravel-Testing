@@ -1,7 +1,11 @@
 @component('mail::message')
-# Thanks for visiting my website {{ $name }}!
+# Hey This is {{ $name }}!
 
 We'll be touched in a minute.
+
+Email => {{ $email }}<br>
+Content => {{ $message }}
+
 
 @component('mail::button', ['url' => 'https://www.youtube.com'])
 Go To Youtube
