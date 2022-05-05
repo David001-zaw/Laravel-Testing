@@ -5,6 +5,7 @@ use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\PhotoController;
@@ -71,6 +72,37 @@ Route::group(['prefix' => '{locale}'], function () {
     Route::post('/reply/store', [CommentController::class, 'replyStore'])->name('reply.add');
 
     Route::delete('/comment/delete', [CommentController::class, 'delete'])->name('comment.delete');
+
+
+    // Laravel CRUD
+    /* Route::get('/games', [GameController::class, 'index'])->name('games.index');
+    Route::get('/games/create', [GameController::class, 'create'])->name('games.create');
+    Route::post('/games/store', [GameController::class, 'store'])->name('games.store');
+    Route::get('/games/{id}', [GameController::class, 'show'])->name('games.show');
+    Route::get('/games/{id}/edit', [GameController::class, 'edit'])->name('games.edit');
+    Route::put('/games/{id}', [GameController::class, 'update'])->name('games.update');
+    Route::delete('/games/{id}', [GameController::class, 'destroy'])->name('games.destroy'); */
+    Route::resource('/games', GameController::class);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     Auth::routes();

@@ -18,7 +18,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <h4><a href="">Laravel Basic Crud</a></h4>
+                    <h4><a href="{{ route('games.index', app()->getLocale()) }}">Laravel Basic Crud</a></h4>
                 </div>
             </div>
         </div>
